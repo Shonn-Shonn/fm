@@ -1,31 +1,56 @@
 $text-colorone:white;
 $text-colortwo:black;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: aliceblue;
+    letter-spacing: 0.8px;
 }
 
+
 .wrapper {
-    margin: 5em;
-    border: 1px solid teal;
+    margin: 5em 2em;
     display: grid;
-    gap: 5px;
+    gap: 2em;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: mixmax(40vh, auto);
+    grid-template-rows: 25em;
+    grid-auto-rows: minmax(27em, auto);
 
     div {
         color: $text-colorone;
+        padding: .65em;
+        border-radius: 1em;
+    }
+
+    .title {
+        gap: 1em;
+        display: flex;
+
+        span {
+            font-weight: 50;
+        }
+
+        p {
+            font-weight: 100;
+            letter-spacing: 3px;
+        }
+
+        img {
+            border-radius: 50%;
+            border: 2px solid rgb(185, 157, 212);
+        }
     }
 
     .box1 {
-        background-color: rgb(122, 38, 190);
+        background-color: rgb(156, 66, 247);
         grid-column: 1/3;
         grid-row: 1/2;
     }
 
     .box2 {
-        background-color: rgb(97, 97, 97);
+        background-color: rgb(77, 98, 124);
     }
 
     .box3 {
@@ -33,19 +58,71 @@ body {
         background-color: white;
         grid-column: 4/5;
         grid-row: 1/3;
+
+        div {
+            color: rgb(81, 100, 126) !important;
+        }
     }
 
     .box4 {
         color: $text-colortwo;
         background-color: white;
+        grid-row: 2/3;
+
+        div {
+            color: rgb(81, 100, 126) !important;
+        }
     }
 
     .box5 {
         grid-column: 2/4;
-        background-color: black;
+        background-color: rgb(31, 31, 44);
     }
 }
 
-img {
-    border-radius: 50%;
+@media screen and (max-width:1295px) {
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            margin-top: 1em;
+        }
+
+
+        .box4 {
+            background-color: rgb(31, 31, 44);
+
+            div {
+                color: white !important;
+            }
+
+        }
+
+        .box5 {
+            background-color: white;
+
+            div {
+                color: rgb(81, 100, 126) !important;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width:980px) {
+    .wrapper {
+        display: inherit;
+
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5 {
+        margin-top: 1.5em;
+    }
+
 }
